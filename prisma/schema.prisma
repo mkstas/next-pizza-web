@@ -10,5 +10,143 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("POSTGRES_URI")
+  url      = env("POSTGRES_URL")
+}
+
+enum UserRole {
+  USER
+  ADMIN
+}
+
+enum OrderStatus {
+  PENDING
+  SUCCEEDED
+  CANCELED
+}
+
+model User {
+  id               Int               @id @default(autoincrement())
+  email            String            @unique
+  password         String
+  username         String
+  role             UserRole          @default(USER)
+  provider         String?
+  providerId       String?           @map("provider_id")
+  createdAt        DateTime          @default(now()) @map("created_at")
+  updatedAt        DateTime          @updatedAt @map("updated_at")
+  verificationCode VerificationCode?
+  cart             Cart?
+  order            Order[]
+
+  @@map("users")
+}
+
+model VerificationCode {
+  id        Int      @id @default(autoincrement())
+  code      String
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+  user      User     @relation(fields: [userId], references: [id])
+  userId    Int      @unique @map("user_id")
+
+  @@unique([userId, code])
+  @@map("verification_codes")
+}
+
+model Category {
+  id        Int       @id @default(autoincrement())
+  name      String    @unique
+  createdAt DateTime  @default(now()) @map("created_at")
+  updatedAt DateTime  @updatedAt @map("updated_at")
+  products  Product[]
+
+  @@map("categories")
+}
+
+model Product {
+  id              Int              @id @default(autoincrement())
+  name            String
+  imageUrl        String           @map("image_url")
+  createdAt       DateTime         @default(now()) @map("created_at")
+  updatedAt       DateTime         @updatedAt @map("updated_at")
+  category        Category         @relation(fields: [categoryId], references: [id])
+  categoryId      Int              @map("category_id")
+  productVariants ProductVariant[]
+  ingredients     Ingredient[]
+
+  @@map("products")
+}
+
+model ProductVariant {
+  id          Int           @id @default(autoincrement())
+  price       Int
+  size        Int?
+  type        Int?
+  createdAt   DateTime      @default(now()) @map("created_at")
+  updatedAt   DateTime      @updatedAt @map("updated_at")
+  product     Product       @relation(fields: [productId], references: [id])
+  productId   Int           @map("product_id")
+  cartProduct CartProduct[]
+
+  @@map("product_variants")
+}
+
+model Ingredient {
+  id          Int           @id @default(autoincrement())
+  name        String
+  imageUrl    String        @map("image_url")
+  price       Int
+  createdAt   DateTime      @default(now()) @map("created_at")
+  updatedAt   DateTime      @updatedAt @map("updated_at")
+  products    Product[]
+  cartProduct CartProduct[]
+
+  @@map("ingredients")
+}
+
+model Cart {
+  id          Int           @id @default(autoincrement())
+  user        User?         @relation(fields: [userId], references: [id])
+  userId      Int?          @unique @map("user_id")
+  token       String
+  cost        Int           @default(0)
+  createdAt   DateTime      @default(now()) @map("created_at")
+  updatedAt   DateTime      @updatedAt @map("updated_at")
+  cartProduct CartProduct[]
+
+  @@map("carts")
+}
+
+model CartProduct {
+  id               Int            @id @default(autoincrement())
+  quantity         Int
+  createdAt        DateTime       @default(now()) @map("created_at")
+  updatedAt        DateTime       @updatedAt @map("updated_at")
+  cart             Cart           @relation(fields: [cartId], references: [id])
+  cartId           Int            @map("cart_id")
+  productVariant   ProductVariant @relation(fields: [productVariantId], references: [id])
+  productVariantId Int            @map("product_variant_id")
+  ingredients      Ingredient[]
+
+  @@map("cart_products")
+}
+
+model Order {
+  id        Int         @id @default(autoincrement())
+  token     String
+  cost      Int
+  status    OrderStatus
+  paymentId String?     @map("payment_id")
+  products  Json
+  username  String
+  email     String
+  phone     String
+  address   String
+  comment   String?
+  createdAt DateTime    @default(now()) @map("created_at")
+  updatedAt DateTime    @updatedAt @map("updated_at")
+  user      User?       @relation(fields: [userId], references: [id])
+  userId    Int?        @map("user_id")
+
+  @@map("orders")
 }
