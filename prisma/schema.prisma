@@ -30,6 +30,7 @@ model User {
   password         String
   username         String
   role             UserRole          @default(USER)
+  verified         DateTime
   provider         String?
   providerId       String?           @map("provider_id")
   createdAt        DateTime          @default(now()) @map("created_at")
