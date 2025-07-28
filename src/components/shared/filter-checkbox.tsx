@@ -3,6 +3,7 @@ import { Checkbox } from '../ui/checkbox';
 export interface FilterChecboxProps {
   text: string;
   value: string;
+  name?: string;
   endAdornment?: React.ReactNode;
   onCheckedChange?: (checked: boolean) => void;
   checked?: boolean;
@@ -11,6 +12,7 @@ export interface FilterChecboxProps {
 export const FilterCheckbox: React.FC<FilterChecboxProps> = ({
   text,
   value,
+  name,
   endAdornment,
   onCheckedChange,
   checked,
@@ -22,9 +24,9 @@ export const FilterCheckbox: React.FC<FilterChecboxProps> = ({
         checked={checked}
         value={value}
         className="size-6 rounded-[8px]"
-        id={`checkbox-${String(value)}`}
+        id={`checkbox-${String(value)}-${String(name)}`}
       />
-      <label htmlFor={`checkbox-${String(value)}`} className="flex-1 cursor-pointer leading-none">
+      <label htmlFor={`checkbox-${String(value)}-${String(name)}`} className="flex-1 cursor-pointer leading-none">
         {text}
       </label>
       {endAdornment}
