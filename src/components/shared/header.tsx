@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { Button } from '../ui/button';
 import { ArrowRight, ShoppingCart, User } from 'lucide-react';
 import Link from 'next/link';
-import { SearchInput } from './search-input';
+import { SearchInput } from '../header/SearchInput';
 
 interface Props {
   className?: string;
