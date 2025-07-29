@@ -13,8 +13,8 @@ interface Props {
 
 export const Header: React.FC<Props> = ({ className }) => {
   return (
-    <header className={cn('border-accent border-b', className)}>
-      <Container className="flex items-center gap-8 py-8">
+    <header className={cn('border-accent border-b py-4', className)}>
+      <Container className="flex items-center gap-8">
         <Link href="/" className="flex items-center gap-4">
           <Image src="/logo.png" alt="Next Pizza Logo" width={36} height={36} />
           <div>

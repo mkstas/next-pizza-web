@@ -1,15 +1,11 @@
 import { Container } from '@/components/shared/container';
 import { Filters } from '@/components/shared/filters';
 import { ProductsGroupList } from '@/components/shared/products-group-list';
-import { Title } from '@/components/shared/title';
-import { TopBar } from '@/components/shared/top-bar';
+import { TopBar } from '@/components/top-bar';
 
 export default function Home() {
   return (
     <>
-      <Container className="mt-8">
-        <Title text="Все пиццы" size="lg" className="font-extrabold" />
-      </Container>
       <TopBar />
 
       <Container className="mt-10 pb-14">

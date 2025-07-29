@@ -32,20 +32,21 @@ const cats = [
 
 export const Categories: React.FC<Props> = ({ className }) => {
   const activeCategoryId = useCategoryStore(state => state.activeId);
+  const setActiveCategoryId = useCategoryStore(state => state.setActiveId);
 
   return (
-    <div className={cn('inline-flex gap-1 rounded-md bg-gray-50 p-1', className)}>
-      {cats.map((cat, index) => (
-        <a
+    <div className={cn('bg-secondary inline-flex gap-1 rounded-md p-1', className)}>
+      {cats.map(cat => (
+        <button
           className={cn(
-            'flex h-11 items-center rounded-md px-5 font-bold',
-            activeCategoryId === cat.id && 'text-primary bg-white shadow-md shadow-gray-200',
+            'flex cursor-pointer items-center rounded-md px-5 py-2 font-bold',
+            activeCategoryId === cat.id && 'text-primary cursor-auto bg-white shadow-xs',
           )}
-          href={`/#${cat.name}`}
-          key={index}
+          key={cat.id}
+          onClick={() => setActiveCategoryId(cat.id)}
         >
-          <button>{cat.name}</button>
-        </a>
+          {cat.name}
+        </button>
       ))}
     </div>
   );
