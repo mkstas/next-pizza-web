@@ -3,6 +3,11 @@ import { ProductsGroupList } from '@/components/shared/products-group-list';
 import { TopBar } from '@/components/shared/top-bar';
 import { prisma } from '@/prisma/prisma-client';
 import { Container } from '@/components/shared/container';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Next Pizza',
+};
 
 export default async function Home() {
   const categories = await prisma.category.findMany({
