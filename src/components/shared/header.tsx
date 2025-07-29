@@ -2,10 +2,10 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ShoppingCart, ArrowRight } from 'lucide-react';
-import { Container } from '@/shared';
 import { cn } from '@/lib/utils';
-import { SearchInput } from './SearchInput';
+import { SearchInput } from './search-input';
 import { Button } from '../ui/button';
+import { Container } from '@/components/shared/container';
 
 interface Props {
   className?: string;
