@@ -7,6 +7,7 @@ import { FC } from 'react';
 import { ChoozeProductForm } from '../chooze-product-form';
 import { ProductWithRelations } from '@/@types/product';
 import { ChoozePizzaForm } from '../chooze-pizza-form';
+import { DialogTitle } from '@radix-ui/react-dialog';
 
 interface Props {
   product: ProductWithRelations;
@@ -19,6 +20,7 @@ export const ChooseProductModal: FC<Props> = ({ className, product }) => {
 
   return (
     <Dialog open={Boolean(product)} onOpenChange={() => router.back()}>
+      <DialogTitle hidden>{product.name}</DialogTitle>
       <DialogContent className={cn('min-h-[520px] overflow-hidden bg-white p-0 sm:max-w-5xl', className)}>
         {isPizzaForm ? (
           <ChoozePizzaForm

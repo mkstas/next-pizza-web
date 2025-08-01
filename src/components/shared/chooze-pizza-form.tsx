@@ -5,12 +5,12 @@ import { ProductImage } from './product-image';
 import { Title } from './title';
 import { Button } from '../ui/button';
 import { GroupVariants } from './group-variants';
-import { mapPizzaType, PizzaSize, PizzaType, pizzaTypes } from '@/constants/pizza';
+import { PizzaSize, PizzaType, pizzaTypes } from '@/constants/pizza';
 import React from 'react';
 import { IngredientItem } from './ingredient-item';
-import { calcTotalPizzaPrice } from '@/lib/calc-total-pizza-price';
 import { usePizzaOptions } from '@/hooks/use-pizza-options';
 import { getPizzaDetails } from '@/lib/get-pizza-details';
+import { DialogTitle } from '@radix-ui/react-dialog';
 
 interface Props {
   imageUrl: string;
@@ -22,7 +22,7 @@ interface Props {
   className?: string;
 }
 
-export const ChoozePizzaForm: FC<Props> = ({ name, items, imageUrl, ingredients, loading, onSubmit, className }) => {
+export const ChoozePizzaForm: FC<Props> = ({ name, items, imageUrl, ingredients, className }) => {
   const { size, type, selectedIngredients, availableSizes, setSize, setType, addIngredient } = usePizzaOptions(items);
   const { totalPrice, textDetails } = getPizzaDetails(type, size, items, ingredients, selectedIngredients);
 
