@@ -18,13 +18,19 @@ interface Props {
   ingredients: Ingredient[];
   items: ProductVariant[];
   loading?: boolean;
-  onSubmit?: (itemId: number, ingredients: number[]) => void;
+  onSubmit: (itemId: number, ingredients: number[]) => void;
   className?: string;
 }
 
-export const ChoozePizzaForm: FC<Props> = ({ name, items, imageUrl, ingredients, className }) => {
-  const { size, type, selectedIngredients, availableSizes, setSize, setType, addIngredient } = usePizzaOptions(items);
+export const ChoozePizzaForm: FC<Props> = ({ name, items, imageUrl, ingredients, className, onSubmit }) => {
+  const { size, type, selectedIngredients, availableSizes, currentItemId, setSize, setType, addIngredient } =
+    usePizzaOptions(items);
+
   const { totalPrice, textDetails } = getPizzaDetails(type, size, items, ingredients, selectedIngredients);
+
+  const handleClickAdd = () => {
+    onSubmit(currentItemId, Array.from(selectedIngredients));
+  };
 
   return (
     <div className={cn(className, 'flex flex-1')}>
@@ -59,7 +65,7 @@ export const ChoozePizzaForm: FC<Props> = ({ name, items, imageUrl, ingredients,
           </div>
         </div>
 
-        <Button className="mt-auto h-[55px] w-full rounded-[18px] px-10 text-base">
+        <Button onClick={handleClickAdd} className="mt-auto h-[55px] w-full rounded-[18px] px-10 text-base">
           Добавить в корзину за {totalPrice} ₽
         </Button>
       </div>

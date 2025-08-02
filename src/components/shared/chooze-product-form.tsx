@@ -7,12 +7,13 @@ import { Button } from '../ui/button';
 interface Props {
   imageUrl: string;
   name: string;
+  price: number;
   loading?: boolean;
-  onSubmit?: (itemId: number, ingredients: number[]) => void;
+  onSubmit?: VoidFunction;
   className?: string;
 }
 
-export const ChoozeProductForm: FC<Props> = ({ name, imageUrl, loading, onSubmit, className }) => {
+export const ChoozeProductForm: FC<Props> = ({ name, price, imageUrl, loading, onSubmit, className }) => {
   return (
     <div className={cn(className, 'flex flex-1')}>
       <div className={cn('relative flex w-full flex-1 items-center justify-center')}>
@@ -27,8 +28,9 @@ export const ChoozeProductForm: FC<Props> = ({ name, imageUrl, loading, onSubmit
 
       <div className="bg-secondary w-[490px] p-7">
         <Title text={name} size="md" className="mb-1 font-extrabold" />
-        <p className="text-gray-400">Lorem ipsum dolor sit amet consectetur.</p>
-        <Button className="mt-10 h-[55px] w-full rounded-[18px] px-10 text-base">Добавить в корзину за 300 ₽</Button>
+        <Button onClick={onSubmit} className="mt-10 h-[55px] w-full rounded-[18px] px-10 text-base">
+          Добавить в корзину за {price} ₽
+        </Button>
       </div>
     </div>
   );

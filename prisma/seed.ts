@@ -91,6 +91,18 @@ const up = async () => {
 
   await prisma.productVariant.createMany({
     data: [
+      generateProductVariant({ productId: pizza1.id, type: 1, size: 20 }),
+      generateProductVariant({ productId: pizza1.id, type: 2, size: 30 }),
+      generateProductVariant({ productId: pizza1.id, type: 2, size: 40 }),
+      generateProductVariant({ productId: pizza2.id, type: 1, size: 20 }),
+      generateProductVariant({ productId: pizza2.id, type: 1, size: 30 }),
+      generateProductVariant({ productId: pizza2.id, type: 1, size: 40 }),
+      generateProductVariant({ productId: pizza2.id, type: 2, size: 20 }),
+      generateProductVariant({ productId: pizza2.id, type: 2, size: 30 }),
+      generateProductVariant({ productId: pizza2.id, type: 2, size: 40 }),
+      generateProductVariant({ productId: pizza3.id, type: 1, size: 20 }),
+      generateProductVariant({ productId: pizza3.id, type: 2, size: 30 }),
+      generateProductVariant({ productId: pizza3.id, type: 2, size: 40 }),
       generateProductVariant({ productId: 1 }),
       generateProductVariant({ productId: 2 }),
       generateProductVariant({ productId: 3 }),
@@ -108,18 +120,6 @@ const up = async () => {
       generateProductVariant({ productId: 15 }),
       generateProductVariant({ productId: 16 }),
       generateProductVariant({ productId: 17 }),
-      generateProductVariant({ productId: pizza1.id, type: 1, size: 20 }),
-      generateProductVariant({ productId: pizza1.id, type: 2, size: 30 }),
-      generateProductVariant({ productId: pizza1.id, type: 2, size: 40 }),
-      generateProductVariant({ productId: pizza2.id, type: 1, size: 20 }),
-      generateProductVariant({ productId: pizza2.id, type: 1, size: 30 }),
-      generateProductVariant({ productId: pizza2.id, type: 1, size: 40 }),
-      generateProductVariant({ productId: pizza2.id, type: 2, size: 20 }),
-      generateProductVariant({ productId: pizza2.id, type: 2, size: 30 }),
-      generateProductVariant({ productId: pizza2.id, type: 2, size: 40 }),
-      generateProductVariant({ productId: pizza3.id, type: 1, size: 20 }),
-      generateProductVariant({ productId: pizza3.id, type: 2, size: 30 }),
-      generateProductVariant({ productId: pizza3.id, type: 2, size: 40 }),
     ],
   });
 
