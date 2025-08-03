@@ -1,25 +1,16 @@
 import { Filters } from '@/components/shared/filters';
 import { ProductsGroupList } from '@/components/shared/products-group-list';
 import { TopBar } from '@/components/shared/top-bar';
-import { prisma } from '@/prisma/prisma-client';
 import { Container } from '@/components/shared/container';
 import { Metadata } from 'next';
+import { findPizzas, GetSearchParams } from '@/lib/find-pizzas';
 
 export const metadata: Metadata = {
   title: 'Next Pizza',
 };
 
-export default async function Home() {
-  const categories = await prisma.category.findMany({
-    include: {
-      products: {
-        include: {
-          productVariants: true,
-          ingredients: true,
-        },
-      },
-    },
-  });
+export default async function Home({ searchParams }: { searchParams: GetSearchParams }) {
+  const categories = await findPizzas(searchParams);
 
   return (
     <>
