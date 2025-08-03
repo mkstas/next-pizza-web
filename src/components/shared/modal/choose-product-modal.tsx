@@ -9,6 +9,7 @@ import { ProductWithRelations } from '@/@types/product';
 import { ChoozePizzaForm } from '../chooze-pizza-form';
 import { DialogTitle } from '@radix-ui/react-dialog';
 import { useCartStore } from '@/store/cart';
+import toast from 'react-hot-toast';
 
 interface Props {
   product: ProductWithRelations;
@@ -20,19 +21,33 @@ export const ChooseProductModal: FC<Props> = ({ className, product }) => {
   const firstItem = product.productVariants[0];
   const isPizzaForm = Boolean(firstItem.type);
 
-  const { addCartItem } = useCartStore();
+  const { loading, addCartItem } = useCartStore();
 
-  const onAddToCart = () => {
-    addCartItem({
-      productVariantId: firstItem.id,
-    });
+  const onAddToCart = async () => {
+    try {
+      await addCartItem({
+        productVariantId: firstItem.id,
+      });
+      toast.success('Товар добавлен в корзину');
+      router.back();
+    } catch (error) {
+      toast.error('Не удалось добавить товар в корзину');
+      console.error(error);
+    }
   };
 
-  const onAddPizzaToCart = (productVariantId: number, ingredients: number[]) => {
-    addCartItem({
-      productVariantId,
-      ingredients,
-    });
+  const onAddPizzaToCart = async (productVariantId: number, ingredients: number[]) => {
+    try {
+      await addCartItem({
+        productVariantId,
+        ingredients,
+      });
+      toast.success('Товар добавлен в корзину');
+      router.back();
+    } catch (error) {
+      toast.error('Не удалось добавить товар в корзину');
+      console.error(error);
+    }
   };
 
   return (
@@ -46,6 +61,7 @@ export const ChooseProductModal: FC<Props> = ({ className, product }) => {
             ingredients={product.ingredients}
             items={product.productVariants}
             onSubmit={onAddPizzaToCart}
+            loading={loading}
           />
         ) : (
           <ChoozeProductForm
@@ -53,6 +69,7 @@ export const ChooseProductModal: FC<Props> = ({ className, product }) => {
             name={product.name}
             price={firstItem.price}
             onSubmit={onAddToCart}
+            loading={loading}
           />
         )}
       </DialogContent>

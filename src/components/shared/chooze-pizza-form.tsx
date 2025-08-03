@@ -10,7 +10,6 @@ import React from 'react';
 import { IngredientItem } from './ingredient-item';
 import { usePizzaOptions } from '@/hooks/use-pizza-options';
 import { getPizzaDetails } from '@/lib/get-pizza-details';
-import { DialogTitle } from '@radix-ui/react-dialog';
 
 interface Props {
   imageUrl: string;
@@ -22,7 +21,7 @@ interface Props {
   className?: string;
 }
 
-export const ChoozePizzaForm: FC<Props> = ({ name, items, imageUrl, ingredients, className, onSubmit }) => {
+export const ChoozePizzaForm: FC<Props> = ({ name, items, imageUrl, loading, ingredients, className, onSubmit }) => {
   const { size, type, selectedIngredients, availableSizes, currentItemId, setSize, setType, addIngredient } =
     usePizzaOptions(items);
 
@@ -65,7 +64,11 @@ export const ChoozePizzaForm: FC<Props> = ({ name, items, imageUrl, ingredients,
           </div>
         </div>
 
-        <Button onClick={handleClickAdd} className="mt-auto h-[55px] w-full rounded-[18px] px-10 text-base">
+        <Button
+          loading={loading}
+          onClick={handleClickAdd}
+          className="mt-auto h-[55px] w-full rounded-[18px] px-10 text-base"
+        >
           Добавить в корзину за {totalPrice} ₽
         </Button>
       </div>

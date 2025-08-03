@@ -28,7 +28,7 @@ export const ChoozeProductForm: FC<Props> = ({ name, price, imageUrl, loading, o
 
       <div className="bg-secondary w-[490px] p-7">
         <Title text={name} size="md" className="mb-1 font-extrabold" />
-        <Button onClick={onSubmit} className="mt-10 h-[55px] w-full rounded-[18px] px-10 text-base">
+        <Button loading={loading} onClick={onSubmit} className="mt-10 h-[55px] w-full rounded-[18px] px-10 text-base">
           Добавить в корзину за {price} ₽
         </Button>
       </div>

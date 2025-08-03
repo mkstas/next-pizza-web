@@ -22,7 +22,7 @@ export const usePizzaOptions = (items: ProductVariant[]): ReturnProps => {
   const [selectedIngredients, { toggle: addIngredient }] = useSet(new Set<number>([]));
   const availableSizes = getAvailablePizzaSizes(type, items);
 
-  const currentItemId = items.find(item => item.type === type && item.size === size)!.id;
+  const currentItemId = items.find(item => item.type === type && item.size === size)?.id;
 
   useEffect(() => {
     const isAvailableSize = availableSizes?.find(item => Number(item.value) === size && !item.disabled);
