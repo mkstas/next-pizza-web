@@ -8,13 +8,15 @@ import { Container } from '@/components/shared/container';
 import { CartButton } from './cart-button';
 
 interface Props {
+  hasSearch?: boolean;
+  hasCart?: boolean;
   className?: string;
 }
 
-export const Header: React.FC<Props> = ({ className }) => {
+export const Header: React.FC<Props> = ({ className, hasSearch = true, hasCart = true }) => {
   return (
     <header className={cn('border-accent border-b py-4', className)}>
-      <Container className="flex items-center gap-8">
+      <Container className="flex items-center justify-between gap-8">
         <Link href="/" className="flex items-center gap-4">
           <Image src="/logo.png" alt="Next Pizza Logo" width={36} height={36} />
           <div>
@@ -22,12 +24,12 @@ export const Header: React.FC<Props> = ({ className }) => {
             <p className="text-primary text-sm leading-2">Вкусней уже некуда</p>
           </div>
         </Link>
-        <SearchInput className="flex-1" />
+        {hasSearch && <SearchInput className="flex-1" />}
         <div className="flex items-center gap-2">
           <Button variant={'outline'} size={'lg'}>
             Войти
           </Button>
-          <CartButton />
+          {hasCart && <CartButton />}
         </div>
       </Container>
     </header>
