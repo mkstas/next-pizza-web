@@ -1,1 +1,1 @@
-export { MarketHeader } from './MarketHeader';
+export * from './MarketHeader';
