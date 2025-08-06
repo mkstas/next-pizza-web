@@ -1,4 +1,5 @@
 import { Nunito } from 'next/font/google';
+import { cn } from '@/shared/utils';
 import '@/shared/assets/index.css';
 
 const nunito = Nunito({
@@ -17,7 +18,9 @@ export default function RootLayout({
       <head>
         <link rel='icon' type='image/x-icon' href='/favicon.ico' />
       </head>
-      <body className={nunito.className}>{children}</body>
+      <body className={cn('bg-slate-50 text-slate-900 dark:bg-neutral-900 dark:text-white', nunito.className)}>
+        {children}
+      </body>
     </html>
   );
 }
