@@ -1,4 +1,4 @@
-import type { FC } from 'react';
+import { type FC } from 'react';
 import { UserIcon } from 'lucide-react';
 
 interface Props {

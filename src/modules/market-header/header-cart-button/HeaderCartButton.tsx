@@ -1,4 +1,4 @@
-import type { FC } from 'react';
+import { memo, type FC } from 'react';
 import { ShoppingBagIcon, ArrowRightIcon } from 'lucide-react';
 import { UiButton } from '@/components';
 
@@ -6,7 +6,7 @@ interface Props {
   onClick?: () => void;
 }
 
-export const HeaderCartButton: FC<Props> = ({ onClick }) => {
+const CartButton: FC<Props> = ({ onClick }) => {
   return (
     <UiButton onClick={onClick} className='group relative'>
       <span>1000 ₽</span>
@@ -22,3 +22,5 @@ export const HeaderCartButton: FC<Props> = ({ onClick }) => {
     </UiButton>
   );
 };
+
+export const HeaderCartButton = memo(CartButton);

@@ -13,11 +13,13 @@ export const MarketHeader: FC = () => {
 
   return (
     <header className='bg-white py-3 dark:bg-neutral-800'>
-      <UiContainer className='relative flex items-center gap-2'>
-        <HeaderLogo />
-        <div className='ml-auto flex gap-2'>
-          <HeaderUserButton onClick={toggleIsOpenMenu} id='header_user_button' />
-          <HeaderCartButton />
+      <UiContainer className='relative'>
+        <div className='flex items-center gap-2'>
+          <HeaderLogo />
+          <div className='ml-auto flex gap-2'>
+            <HeaderUserButton onClick={toggleIsOpenMenu} id='header_user_button' />
+            <HeaderCartButton />
+          </div>
         </div>
         <HeaderMenu isOpen={isOpen} id='header_menu' />
       </UiContainer>
