@@ -20,7 +20,7 @@ export const HeaderMenu: FC<Props> = ({ id, isOpen }) => {
     <UiBox
       id={id}
       className={cn(
-        'absolute top-16 right-3 w-full max-w-60 py-2 transition',
+        'absolute top-16 right-0 w-full max-w-60 border border-slate-200 py-2 transition dark:border-neutral-700',
         isOpen && 'visible -translate-y-1 opacity-100',
         !isOpen && 'pointer-events-none invisible opacity-0',
       )}
