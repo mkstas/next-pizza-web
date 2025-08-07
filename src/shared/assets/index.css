@@ -1,3 +1,25 @@
 @import 'tailwindcss';
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+@layer utilities {
+  .scrollbar::-webkit-scrollbar {
+    @apply w-1;
+  }
+
+  .scrollbar::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb {
+    @apply rounded-full;
+  }
+
+  html[data-theme='light'] .scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-slate-200;
+  }
+
+  html[data-theme='dark'] .scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-neutral-700;
+  }
+}

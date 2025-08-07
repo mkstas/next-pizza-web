@@ -4,9 +4,7 @@ import { cn } from '@/shared/utils';
 import { ThemeProvider, UserProvider } from '@/providers';
 
 const nunito = Nunito({
-  subsets: ['cyrillic'],
-  variable: '--font-nunito',
-  weight: ['400', '500', '600', '700', '800', '900'],
+  subsets: ['latin', 'cyrillic'],
 });
 
 export default function RootLayout({

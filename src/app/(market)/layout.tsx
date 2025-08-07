@@ -8,7 +8,7 @@ export default function MarketLyaout({
   return (
     <>
       <MarketHeader />
-      {children}
+      <main className='py-8'>{children}</main>
     </>
   );
 }
