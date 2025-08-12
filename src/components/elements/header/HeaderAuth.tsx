@@ -1,8 +1,7 @@
-import { Skeleton } from '@/components/interface';
-import { ROUTES } from '@/config/constants';
-import { LogOutIcon, UserIcon } from 'lucide-react';
-import Link from 'next/link';
 import { FC, memo } from 'react';
+import { LogInIcon, LogOutIcon, UserIcon } from 'lucide-react';
+import { Button, ButtonLink, Skeleton } from '@/components/interface';
+import { ROUTES } from '@/config/constants';
 
 interface Props {
   isLoading?: boolean;
@@ -16,19 +15,22 @@ const Component: FC<Props> = ({ isLoading, isLoggedIn }) => {
 
   if (isLoggedIn) {
     return (
-      <Link
-        href={ROUTES.ACCOUNT}
-        className='flex size-10 cursor-pointer items-center justify-center rounded-lg p-2 transition hover:bg-slate-100 dark:border-neutral-600 dark:hover:bg-neutral-700'
-      >
-        <UserIcon size={20} className='text-orange-500' />
-      </Link>
+      <>
+        <ButtonLink href={ROUTES.ACCOUNT} variant='ghost' geometry='square'>
+          <UserIcon size={20} className='text-orange-500' />
+        </ButtonLink>
+        <Button variant='ghost' geometry='square'>
+          <LogOutIcon size={20} className='text-orange-500' />
+        </Button>
+      </>
     );
   }
 
   return (
-    <button className='flex size-10 cursor-pointer items-center justify-center rounded-lg p-2 transition hover:bg-slate-100 dark:border-neutral-600 dark:hover:bg-neutral-700'>
-      <LogOutIcon size={20} className='text-orange-500' />
-    </button>
+    <ButtonLink href={ROUTES.LOGIN} variant='ghost'>
+      <span className='font-semibold'>Войти</span>
+      <LogInIcon size={20} className='text-orange-500' />
+    </ButtonLink>
   );
 };
 

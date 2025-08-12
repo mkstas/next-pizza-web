@@ -1,5 +1,6 @@
 import { FC, memo } from 'react';
 import { MoonIcon, SunIcon } from 'lucide-react';
+import { Button } from '@/components/interface';
 import { Theme } from '@/providers/theme.provider';
 
 interface Props {
@@ -9,16 +10,13 @@ interface Props {
 
 const Component: FC<Props> = ({ theme = 'light', onClick }) => {
   return (
-    <button
-      onClick={onClick}
-      className='flex size-10 cursor-pointer items-center justify-center rounded-lg p-2 transition hover:bg-slate-100 dark:border-neutral-600 dark:hover:bg-neutral-700'
-    >
+    <Button onClick={onClick} variant='ghost' geometry='square'>
       {theme === 'light' ? (
         <SunIcon size={20} className='text-yellow-500' />
       ) : (
         <MoonIcon size={20} className='text-purple-500' />
       )}
-    </button>
+    </Button>
   );
 };
 
