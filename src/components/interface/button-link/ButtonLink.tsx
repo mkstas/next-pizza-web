@@ -1,5 +1,6 @@
-import { ButtonHTMLAttributes, FC } from 'react';
+import { AnchorHTMLAttributes, FC } from 'react';
 import { cn } from '@/shared/utils/cn';
+import Link from 'next/link';
 
 const variants = {
   default: 'bg-orange-500 hover:bg-orange-600',
@@ -11,16 +12,25 @@ const geometries = {
   square: 'size-10 p-2',
 };
 
-interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface Props extends AnchorHTMLAttributes<HTMLAnchorElement> {
   variant?: keyof typeof variants;
   geometry?: keyof typeof geometries;
+  href: string;
 }
 
-export const Button: FC<Props> = ({ className, children, variant = 'default', geometry = 'default', ...props }) => {
+export const ButtonLink: FC<Props> = ({
+  className,
+  children,
+  href,
+  variant = 'default',
+  geometry = 'default',
+  ...props
+}) => {
   return (
-    <button
+    <Link
+      href={href}
       className={cn(
-        'flex cursor-pointer items-center justify-center gap-2 rounded-lg text-white transition',
+        'flex items-center justify-center gap-2 rounded-lg text-white transition',
         variants[variant],
         geometries[geometry],
         className,
@@ -28,6 +38,6 @@ export const Button: FC<Props> = ({ className, children, variant = 'default', ge
       {...props}
     >
       {children}
-    </button>
+    </Link>
   );
 };
