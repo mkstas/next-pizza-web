@@ -1,6 +1,8 @@
-import { MarketHeader } from '@/modules/market-header';
+import { Container } from '@/components/interface';
+import { MarketHeader } from '@/components/modules/market-header';
+import { NavigationBar } from '@/components/modules/navigation-bar';
 
-export default function MarketLyaout({
+export default function MarketLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -8,7 +10,10 @@ export default function MarketLyaout({
   return (
     <>
       <MarketHeader />
-      <main className='py-8'>{children}</main>
+      <NavigationBar />
+      <main className='py-10'>
+        <Container>{children}</Container>
+      </main>
     </>
   );
 }

@@ -1,7 +1,9 @@
 import { Nunito } from 'next/font/google';
-import '@/shared/assets/index.css';
-import { cn } from '@/shared/utils';
-import { ThemeProvider, UserProvider } from '@/providers';
+import { cn } from '@/shared/utils/cn';
+import { AuthProvider } from '@/providers/auth.provider';
+import { ThemeProvider } from '@/providers/theme.provider';
+
+import '@/shared/index.css';
 
 const nunito = Nunito({
   subsets: ['latin', 'cyrillic'],
@@ -19,7 +21,7 @@ export default function RootLayout({
       </head>
       <body className={cn('bg-slate-50 text-slate-900 dark:bg-neutral-900 dark:text-white', nunito.className)}>
         <ThemeProvider>
-          <UserProvider>{children}</UserProvider>
+          <AuthProvider>{children}</AuthProvider>
         </ThemeProvider>
       </body>
     </html>
