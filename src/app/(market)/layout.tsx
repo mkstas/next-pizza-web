@@ -11,7 +11,7 @@ export default function MarketLayout({
     <>
       <MarketHeader />
       <NavigationBar />
-      <main className='py-10'>
+      <main className='py-8'>
         <Container>{children}</Container>
       </main>
     </>

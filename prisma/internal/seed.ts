@@ -292,6 +292,9 @@ async function up() {
 
   await generateDesserts();
   await generateDessertVariants();
+
+  await generateBreakfast();
+  await generateBreakfastVariants();
 }
 
 async function down() {

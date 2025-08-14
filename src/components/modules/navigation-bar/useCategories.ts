@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Category } from '@prisma/client';
-import { categoryService } from '@/services/category.service';
+import { categoryService } from '@/services/categories.service';
 
 export const useCategories = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
