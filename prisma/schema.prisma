@@ -25,10 +25,66 @@ model User {
 }
 
 model Category {
+  id        String    @id @default(uuid())
+  title     String    @unique
+  createdAt DateTime  @default(now()) @map("created_at")
+  updatedAt DateTime  @updatedAt @map("updated_at")
+  products  Product[]
+
+  @@map("categories")
+}
+
+model Product {
+  id                 String              @id @default(uuid())
+  category           Category            @relation(fields: [categoryId], references: [id])
+  categoryId         String
+  title              String
+  description        String?
+  createdAt          DateTime            @default(now()) @map("created_at")
+  updatedAt          DateTime            @updatedAt @map("updated_at")
+  productVariants    ProductVariant[]
+  productIngredients ProductIngredient[]
+
+  @@map("products")
+}
+
+model ProductVariant {
   id        String   @id @default(uuid())
-  title     String   @unique
+  product   Product  @relation(fields: [productId], references: [id])
+  productId String
+  imageUrl  String   @map("image_url")
+  price     Int
+  weight    Int
+  type      String?
+  size      Int?
+  volume    Int?
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
 
-  @@map("categories")
+  @@map("product_variants")
+}
+
+model Ingredient {
+  id                 String              @id @default(uuid())
+  title              String
+  imageUrl           String              @map("image_url")
+  price              Int
+  createdAt          DateTime            @default(now()) @map("created_at")
+  updatedAt          DateTime            @updatedAt @map("updated_at")
+  productIngredients ProductIngredient[]
+
+  @@map("ingredients")
+}
+
+model ProductIngredient {
+  id           String     @id @default(uuid())
+  ingredient   Ingredient @relation(fields: [ingredientId], references: [id])
+  ingredientId String
+  product      Product    @relation(fields: [productId], references: [id])
+  productId    String
+  required     Boolean    @default(false)
+  createdAt    DateTime   @default(now()) @map("created_at")
+  updatedAt    DateTime   @updatedAt @map("updated_at")
+
+  @@map("product_ingredients")
 }
