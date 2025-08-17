@@ -27,6 +27,7 @@ model User {
 model Category {
   id        String    @id @default(uuid())
   title     String    @unique
+  alias     String    @unique
   createdAt DateTime  @default(now()) @map("created_at")
   updatedAt DateTime  @updatedAt @map("updated_at")
   products  Product[]
@@ -35,38 +36,24 @@ model Category {
 }
 
 model Product {
-  id                 String              @id @default(uuid())
-  category           Category            @relation(fields: [categoryId], references: [id])
-  categoryId         String
-  title              String
-  description        String?
-  createdAt          DateTime            @default(now()) @map("created_at")
-  updatedAt          DateTime            @updatedAt @map("updated_at")
-  productVariants    ProductVariant[]
-  productIngredients ProductIngredient[]
+  id          String              @id @default(uuid())
+  category    Category            @relation(fields: [categoryId], references: [id])
+  categoryId  String
+  title       String
+  alias       String              @unique
+  description String?
+  createdAt   DateTime            @default(now()) @map("created_at")
+  updatedAt   DateTime            @updatedAt @map("updated_at")
+  variants    ProductVariant[]
+  ingredients ProductIngredient[]
 
   @@map("products")
-}
-
-model ProductVariant {
-  id        String   @id @default(uuid())
-  product   Product  @relation(fields: [productId], references: [id])
-  productId String
-  imageUrl  String   @map("image_url")
-  price     Int
-  weight    Int
-  type      String?
-  size      Int?
-  volume    Int?
-  createdAt DateTime @default(now()) @map("created_at")
-  updatedAt DateTime @updatedAt @map("updated_at")
-
-  @@map("product_variants")
 }
 
 model Ingredient {
   id                 String              @id @default(uuid())
   title              String
+  alias              String
   imageUrl           String              @map("image_url")
   price              Int
   createdAt          DateTime            @default(now()) @map("created_at")
@@ -87,4 +74,21 @@ model ProductIngredient {
   updatedAt    DateTime   @updatedAt @map("updated_at")
 
   @@map("product_ingredients")
+}
+
+model ProductVariant {
+  id             String   @id @default(uuid())
+  product        Product  @relation(fields: [productId], references: [id])
+  productId      String
+  imageUrl       String   @map("image_url")
+  price          Int
+  weight         Int
+  pizzaType      String?  @map("pizza_type")
+  pizzaTypeAlias String?  @map("pizza_type_alias")
+  pizzaSize      Int?     @map("pizza_size")
+  volume         Int?
+  createdAt      DateTime @default(now()) @map("created_at")
+  updatedAt      DateTime @updatedAt @map("updated_at")
+
+  @@map("product_variants")
 }

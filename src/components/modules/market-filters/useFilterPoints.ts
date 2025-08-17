@@ -13,7 +13,7 @@ export const useFilterPoints = () => {
   const fetchData = async () => {
     try {
       const [pizzaTypes, pizzaSizes, ingredients] = await Promise.all([
-        productVariantsService.findVariantTypes(),
+        productVariantsService.findPizzaTypes(),
         productVariantsService.findVariantSizes(),
         ingredientsService.findAll(),
       ]);
