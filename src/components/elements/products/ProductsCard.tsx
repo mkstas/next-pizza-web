@@ -4,19 +4,17 @@ import Image from 'next/image';
 import { ProductVariant } from '@prisma/client';
 import { ProductIngredientWithRelation } from '@/types/products.types';
 import { Button } from '@/components/interface';
-import { useProduct } from './useProduct';
 
 interface Props {
   productId: string;
   title: string;
-  description: string | null;
+  imageUrl: string;
+  details: string | null;
   variants: ProductVariant[];
   ingredients: ProductIngredientWithRelation[];
 }
 
-export const ProductsCard: FC<Props> = ({ productId, title, description, variants, ingredients }) => {
-  const { imageUrl, details } = useProduct(variants, ingredients);
-
+export const ProductsCard: FC<Props> = ({ productId, title, imageUrl, details, variants, ingredients }) => {
   return (
     <Link href={productId} className='space-y-4'>
       <div className='rounded-lg bg-white p-4'>
@@ -30,7 +28,7 @@ export const ProductsCard: FC<Props> = ({ productId, title, description, variant
         />
       </div>
       <h3 className='text-xl font-bold'>{title}</h3>
-      <p className='text-sm text-slate-500 dark:text-neutral-400'>{description ? description : details.join(', ')}</p>
+      <p className='text-sm text-slate-500 dark:text-neutral-400'>{details}</p>
       <div className='flex items-center justify-between gap-2'>
         <span className='text-xl font-bold'>от {variants[0].price} ₽</span>
         <Button>Выбрать</Button>

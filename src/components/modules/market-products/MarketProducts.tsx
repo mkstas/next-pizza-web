@@ -7,23 +7,12 @@ import { ProductsGroup } from '@/components/elements/products';
 export const MarketProducts: FC = () => {
   const { isLoading, categoryProducts } = useCatedoryProducts();
 
-  if (isLoading) {
-    return (
-      <div className='space-y-8'>
-        {Array(6)
-          .fill(0)
-          .map((_, index) => (
-            <ProductsGroup key={index} isLoading={isLoading} />
-          ))}
-      </div>
-    );
-  }
-
   return (
     <div className='space-y-8'>
-      {categoryProducts?.map(category => (
+      {categoryProducts.map((category, index) => (
         <ProductsGroup
-          key={category.id}
+          key={category.id || index}
+          isLoading={isLoading}
           categoryId={category.id}
           categoryTitle={category.title}
           products={category.products}

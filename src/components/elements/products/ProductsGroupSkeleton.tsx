@@ -1,6 +1,5 @@
 import { FC } from 'react';
 import { Skeleton } from '@/components/interface';
-import { ProductsCardSkeleton } from './ProductsCardSkeleton';
 
 export const ProductsGroupSkeleton: FC = () => {
   return (
@@ -10,7 +9,15 @@ export const ProductsGroupSkeleton: FC = () => {
         {Array(3)
           .fill(0)
           .map((_, index) => (
-            <ProductsCardSkeleton key={index} />
+            <div key={index} className='space-y-4'>
+              <Skeleton className='aspect-square w-full rounded-xl' />
+              <Skeleton className='h-7 w-32 rounded-xl' />
+              <Skeleton className='h-10 rounded-xl' />
+              <div className='flex items-center justify-between gap-2'>
+                <Skeleton className='h-10 w-24 rounded-xl' />
+                <Skeleton className='h-10 w-24 rounded-xl' />
+              </div>
+            </div>
           ))}
       </div>
     </div>

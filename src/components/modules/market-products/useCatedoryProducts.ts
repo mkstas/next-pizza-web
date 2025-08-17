@@ -4,7 +4,7 @@ import { productsService } from '@/services/products.service';
 
 export const useCatedoryProducts = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [categoryProducts, setCategoryProducts] = useState<CategoryProduct[]>([]);
+  const [categoryProducts, setCategoryProducts] = useState<CategoryProduct[]>(Array(6).fill(0));
 
   const fetchData = async () => {
     try {

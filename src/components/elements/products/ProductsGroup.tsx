@@ -2,6 +2,7 @@ import { FC } from 'react';
 import { ProductWithRelations } from '@/types/products.types';
 import { ProductsGroupSkeleton } from './ProductsGroupSkeleton';
 import { ProductsCard } from './ProductsCard';
+import { getProductDetails, getProductImageUrl } from './get-product-data';
 
 interface Props {
   isLoading?: boolean;
@@ -24,7 +25,8 @@ export const ProductsGroup: FC<Props> = ({ categoryId, categoryTitle, products, 
             key={product.id}
             productId={product.id}
             title={product.title}
-            description={product.description}
+            imageUrl={getProductImageUrl(product.productVariants)}
+            details={getProductDetails(product.description, product.productIngredients)}
             variants={product.productVariants}
             ingredients={product.productIngredients}
           />
