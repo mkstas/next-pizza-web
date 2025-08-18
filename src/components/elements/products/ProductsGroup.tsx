@@ -17,7 +17,9 @@ const getProductImageUrl = (variants: ProductVariant[]) => {
 
 const getProductDetails = (ingredients: ProductIngredientWithRelation[]) => {
   if (ingredients.length) {
-    return [...ingredients.filter(item => item.required).map(item => item.ingredient.title)].join(', ');
+    return [...ingredients.filter(item => item.required).map(item => item.ingredient.title)].join(
+      ', ',
+    );
   }
 };
 

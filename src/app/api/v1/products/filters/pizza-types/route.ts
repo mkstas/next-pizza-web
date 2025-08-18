@@ -1,5 +1,6 @@
-import { prisma } from '@/prisma';
 import { NextResponse } from 'next/server';
+import { prisma } from '@/prisma';
+import { ProductFilterItem } from '@/types/products.types';
 
 export async function GET() {
   const pizzaTypes = await prisma.productVariant.groupBy({
@@ -14,5 +15,16 @@ export async function GET() {
     return NextResponse.json({ message: 'Pizza types are not found' }, { status: 404 });
   }
 
-  return NextResponse.json(pizzaTypes, { status: 200 });
+  return NextResponse.json(
+    [
+      ...pizzaTypes.map((type): ProductFilterItem => {
+        return {
+          value: type.pizzaTypeAlias!,
+          label: type.pizzaType!,
+          alias: type.pizzaTypeAlias!,
+        };
+      }),
+    ],
+    { status: 200 },
+  );
 }

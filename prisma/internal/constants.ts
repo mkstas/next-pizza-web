@@ -36,19 +36,22 @@ export const INGREDIENTS: Pick<Ingredient, 'title' | 'alias' | 'imageUrl' | 'pri
   {
     title: 'Сырный бортик',
     alias: slugify('Сырный бортик'),
-    imageUrl: 'https://cdn.dodostatic.net/static/Img/Ingredients/99f5cb91225b4875bd06a26d2e842106.png',
+    imageUrl:
+      'https://cdn.dodostatic.net/static/Img/Ingredients/99f5cb91225b4875bd06a26d2e842106.png',
     price: 179,
   },
   {
     title: 'Пряная говядина',
     alias: slugify('Пряная говядина'),
-    imageUrl: 'https://cdn.dodostatic.net/static/Img/Ingredients/11ef5ed5f8f64595a6d6a99c1fe6f7f0.png',
+    imageUrl:
+      'https://cdn.dodostatic.net/static/Img/Ingredients/11ef5ed5f8f64595a6d6a99c1fe6f7f0.png',
     price: 119,
   },
   {
     title: 'Моцарелла',
     alias: slugify('Моцарелла'),
-    imageUrl: 'https://cdn.dodostatic.net/static/Img/Ingredients/cdea869ef287426386ed634e6099a5ba.png',
+    imageUrl:
+      'https://cdn.dodostatic.net/static/Img/Ingredients/cdea869ef287426386ed634e6099a5ba.png',
     price: 79,
   },
   {
@@ -66,7 +69,8 @@ export const INGREDIENTS: Pick<Ingredient, 'title' | 'alias' | 'imageUrl' | 'pri
   {
     title: 'Острый перец халапенью',
     alias: slugify('Острый перец халапенью'),
-    imageUrl: 'https://cdn.dodostatic.net/static/Img/Ingredients/11ee95b6bfdf98fb88a113db92d7b3df.png',
+    imageUrl:
+      'https://cdn.dodostatic.net/static/Img/Ingredients/11ee95b6bfdf98fb88a113db92d7b3df.png',
     price: 59,
   },
   {
@@ -132,7 +136,8 @@ export const INGREDIENTS: Pick<Ingredient, 'title' | 'alias' | 'imageUrl' | 'pri
   {
     title: 'Итальянские травы',
     alias: slugify('Итальянские травы'),
-    imageUrl: 'https://cdn.dodostatic.net/static/Img/Ingredients/370dac9ed21e4bffaf9bc2618d258734.png',
+    imageUrl:
+      'https://cdn.dodostatic.net/static/Img/Ingredients/370dac9ed21e4bffaf9bc2618d258734.png',
     price: 39,
   },
   {
@@ -150,19 +155,22 @@ export const INGREDIENTS: Pick<Ingredient, 'title' | 'alias' | 'imageUrl' | 'pri
   {
     title: 'Митболы',
     alias: slugify('Митболы'),
-    imageUrl: 'https://cdn.dodostatic.net/static/Img/Ingredients/b2f3a5d5afe44516a93cfc0d2ee60088.png',
+    imageUrl:
+      'https://cdn.dodostatic.net/static/Img/Ingredients/b2f3a5d5afe44516a93cfc0d2ee60088.png',
     price: 79,
   },
   {
     title: 'Баварские колбаски',
     alias: slugify('Баварские колбаски'),
-    imageUrl: 'https://cdn.dodostatic.net/static/Img/Ingredients/11ee9d3660793feda24a236677d3013e.png',
+    imageUrl:
+      'https://cdn.dodostatic.net/static/Img/Ingredients/11ee9d3660793feda24a236677d3013e.png',
     price: 129,
   },
   {
     title: 'Креветки',
     alias: slugify('Креветки'),
-    imageUrl: 'https://cdn.dodostatic.net/static/Img/Ingredients/11eee5d51d4c576da0f0db611c8947bd.png',
+    imageUrl:
+      'https://cdn.dodostatic.net/static/Img/Ingredients/11eee5d51d4c576da0f0db611c8947bd.png',
     price: 199,
   },
 ];

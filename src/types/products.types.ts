@@ -8,3 +8,15 @@ export type ProductWithRelations = Product & {
 };
 
 export type CategoryProduct = Category & { products: ProductWithRelations[] };
+
+export type ProductFilterItem = {
+  value: string;
+  label: string;
+  alias: string;
+};
+
+export type ProductFilterParams = {
+  pizzaTypes: string[];
+  pizzasSizes: string[];
+  ingredients: string[];
+};

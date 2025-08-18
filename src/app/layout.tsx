@@ -19,7 +19,12 @@ export default function RootLayout({
       <head>
         <link rel='icon' type='image/x-icon' href='/favicon.ico' />
       </head>
-      <body className={cn('bg-slate-50 text-slate-900 dark:bg-neutral-900 dark:text-white', nunito.className)}>
+      <body
+        className={cn(
+          'bg-slate-50 text-slate-900 dark:bg-neutral-900 dark:text-white',
+          nunito.className,
+        )}
+      >
         <ThemeProvider>
           <AuthProvider>{children}</AuthProvider>
         </ThemeProvider>
