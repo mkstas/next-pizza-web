@@ -13,8 +13,8 @@ export const MarketProducts: FC = () => {
         <ProductsGroup
           key={category.id || index}
           isLoading={isLoading}
-          categoryId={category.id}
           categoryTitle={category.title}
+          categoryAlias={category.alias}
           products={category.products}
         />
       ))}

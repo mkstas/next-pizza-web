@@ -9,6 +9,7 @@ export const useCatedoryProducts = () => {
   const fetchData = async () => {
     try {
       const products = await productsService.findAll();
+
       setCategoryProducts(products);
     } catch {
     } finally {
