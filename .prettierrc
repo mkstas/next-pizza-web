@@ -9,5 +9,20 @@
   "tabWidth": 2,
   "semi": true,
   "trailingComma": "all",
-  "plugins": ["prettier-plugin-tailwindcss"]
+  "plugins": ["prettier-plugin-tailwindcss", "@trivago/prettier-plugin-sort-imports"],
+  "importOrder": [
+    "^[a-z].*$",
+    "^@[^/]+/.+$",
+    "@/prisma/(.*)$",
+    "@/types/(.*)$",
+    "@/config/(.*)$",
+    "@/shared/(.*)$",
+    "@/services/(.*)$",
+    "@/providers/(.*)$",
+    "@/components/(.*)$",
+    "^[../]",
+    "^[./]"
+  ],
+  "importOrderSortSpecifiers": true,
+  "importOrderCaseInsensitive": true
 }

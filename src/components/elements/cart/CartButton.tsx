@@ -1,5 +1,5 @@
-import { memo, type FC } from 'react';
-import { ShoppingBagIcon, ArrowRightIcon } from 'lucide-react';
+import { ArrowRightIcon, ShoppingBagIcon } from 'lucide-react';
+import { FC, memo } from 'react';
 import { Button } from '@/components/interface';
 
 interface Props {

@@ -1,9 +1,9 @@
-import { FC } from 'react';
-import Link from 'next/link';
 import Image from 'next/image';
+import Link from 'next/link';
+import { FC } from 'react';
 import { ProductVariant } from '@prisma/client';
-import { Button } from '@/components/interface';
 import { ROUTES } from '@/config/constants';
+import { Button } from '@/components/interface';
 
 interface Props {
   title: string;

@@ -1,7 +1,7 @@
-import { FC, memo } from 'react';
 import { MoonIcon, SunIcon } from 'lucide-react';
-import { Button } from '@/components/interface';
+import { FC, memo } from 'react';
 import { Theme } from '@/providers/theme.provider';
+import { Button } from '@/components/interface';
 
 interface Props {
   theme?: Theme;

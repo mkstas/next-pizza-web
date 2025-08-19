@@ -1,8 +1,8 @@
 'use client';
 
 import { FC, useCallback, useMemo } from 'react';
-import { Button } from '@/components/interface';
 import { FilterGroupItems } from '@/components/elements/filters';
+import { Button } from '@/components/interface';
 import { useFilterItems } from './useFilterItems';
 import { useFilterParams } from './useFilterParams';
 

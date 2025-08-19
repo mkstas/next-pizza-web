@@ -1,5 +1,5 @@
 import { FC, HTMLAttributes } from 'react';
-import { cn } from '@/shared/utils/cn';
+import { cn } from '@/shared/utils';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {}
 

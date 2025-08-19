@@ -1,5 +1,5 @@
-import { Skeleton } from '@/components/interface';
 import { FC } from 'react';
+import { Skeleton } from '@/components/interface';
 
 export const FilterGroupItemsSkeleton: FC = () => {
   return (

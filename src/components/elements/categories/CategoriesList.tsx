@@ -1,14 +1,15 @@
 import { FC, memo } from 'react';
 import { Category } from '@prisma/client';
+import { cn } from '@/shared/utils';
 import { CategoriesSkeleton } from './CategoriesSkeleton';
-import { cn } from '@/shared/utils/cn';
 
 interface Props {
   isLoading?: boolean;
   categories?: Category[];
+  onClick: (alias: string) => void;
 }
 
-const Component: FC<Props> = ({ isLoading, categories }) => {
+const Component: FC<Props> = ({ isLoading, categories, onClick }) => {
   if (isLoading) {
     return <CategoriesSkeleton />;
   }
@@ -19,6 +20,7 @@ const Component: FC<Props> = ({ isLoading, categories }) => {
         {categories?.map(category => (
           <li key={category.id}>
             <button
+              onClick={() => onClick(category.alias)}
               className={cn(
                 'block cursor-pointer rounded-md px-2 py-1 font-semibold transition-colors hover:text-orange-500',
                 category.id === categories[0].id && 'bg-white text-orange-500 dark:bg-neutral-800',

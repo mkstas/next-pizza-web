@@ -1,10 +1,17 @@
+import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { Category } from '@prisma/client';
 import { categoryService } from '@/services/categories.service';
 
 export const useCategories = () => {
+  const router = useRouter();
+
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [categories, setCategories] = useState<Category[]>();
+
+  const onClickCategory = (alias: string) => {
+    router.push(`#${alias}`);
+  };
 
   const fetchData = async () => {
     try {
@@ -20,5 +27,5 @@ export const useCategories = () => {
     fetchData();
   }, []);
 
-  return { categories, isLoading };
+  return { categories, isLoading, onClickCategory };
 };

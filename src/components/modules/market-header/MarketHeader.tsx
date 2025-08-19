@@ -1,11 +1,11 @@
 'use client';
 
 import { FC } from 'react';
-import { Container } from '@/components/interface';
-import { useThemeContext } from '@/providers/theme.provider';
-import { useAuthContext } from '@/providers/auth.provider';
-import { HeaderAuth, HeaderLogo, HeaderTheme } from '@/components/elements/header';
 import { ROUTES } from '@/config/constants';
+import { useAuthContext } from '@/providers/auth.provider';
+import { useThemeContext } from '@/providers/theme.provider';
+import { HeaderAuth, HeaderLogo, HeaderTheme } from '@/components/elements/header';
+import { Container } from '@/components/interface';
 
 export const MarketHeader: FC = () => {
   const { theme, toggleTheme } = useThemeContext();

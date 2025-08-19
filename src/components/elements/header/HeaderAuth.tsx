@@ -1,7 +1,7 @@
-import { FC, memo } from 'react';
 import { LogInIcon, LogOutIcon, UserIcon } from 'lucide-react';
-import { Button, ButtonLink, Skeleton } from '@/components/interface';
+import { FC, memo } from 'react';
 import { ROUTES } from '@/config/constants';
+import { Button, ButtonLink, Skeleton } from '@/components/interface';
 
 interface Props {
   isLoading?: boolean;

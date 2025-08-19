@@ -1,6 +1,6 @@
-import { FC, InputHTMLAttributes } from 'react';
 import { CheckIcon } from 'lucide-react';
-import { cn } from '@/shared/utils/cn';
+import { FC, InputHTMLAttributes } from 'react';
+import { cn } from '@/shared/utils';
 
 interface Props extends Omit<InputHTMLAttributes<HTMLInputElement>, 'type'> {
   label?: string;

@@ -1,5 +1,5 @@
-import { NextResponse } from 'next/server';
 import { prisma } from '@/prisma';
+import { NextResponse } from 'next/server';
 import { ProductFilterItem } from '@/types/products.types';
 
 export async function GET() {

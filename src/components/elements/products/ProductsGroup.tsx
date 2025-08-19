@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import { ProductVariant } from '@prisma/client';
 import { ProductIngredientWithRelation, ProductWithRelations } from '@/types/products.types';
-import { ProductsGroupSkeleton } from './ProductsGroupSkeleton';
 import { ProductsCard } from './ProductsCard';
+import { ProductsGroupSkeleton } from './ProductsGroupSkeleton';
 
 interface Props {
   isLoading?: boolean;

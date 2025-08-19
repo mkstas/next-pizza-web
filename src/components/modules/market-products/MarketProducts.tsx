@@ -1,8 +1,8 @@
 'use client';
 
 import { FC } from 'react';
-import { useCatedoryProducts } from './useCatedoryProducts';
 import { ProductsGroup } from '@/components/elements/products';
+import { useCatedoryProducts } from './useCatedoryProducts';
 
 export const MarketProducts: FC = () => {
   const { isLoading, categoryProducts } = useCatedoryProducts();
