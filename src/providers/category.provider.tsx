@@ -1,6 +1,6 @@
 'use client';
 
-import { createContext, FC, PropsWithChildren, useContext, useEffect, useState } from 'react';
+import { createContext, type FC, type PropsWithChildren, useContext, useState } from 'react';
 
 interface CategoryContextType {
   activeCategory: string;

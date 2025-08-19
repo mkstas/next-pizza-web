@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { ProductFilterItem } from '@/types/products.types';
+import type { ProductFilterItem } from '@/types/products.types';
 import { productsService } from '@/services/products.service';
 
 export const useFilterItems = () => {

@@ -1,7 +1,7 @@
 'use client';
 
-import { createContext, FC, PropsWithChildren, useContext, useState } from 'react';
-import { User } from '@prisma/client';
+import { createContext, type FC, type PropsWithChildren, useContext, useState } from 'react';
+import type { User } from '@prisma/client';
 
 interface AuthContextType {
   user: Partial<User> | null;

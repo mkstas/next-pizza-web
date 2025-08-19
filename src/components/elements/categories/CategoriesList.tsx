@@ -1,7 +1,7 @@
-import { FC, memo } from 'react';
-import { Category } from '@prisma/client';
-import { cn } from '@/shared/utils';
-import { CategoriesSkeleton } from './CategoriesSkeleton';
+import { type FC, memo } from 'react';
+import type { Category } from '@prisma/client';
+import { cn } from '@/utils/cn';
+import { Skeleton } from '@/components/interface';
 
 interface Props {
   isLoading?: boolean;
@@ -12,7 +12,7 @@ interface Props {
 
 const Component: FC<Props> = ({ isLoading, categories, activeCategory, onClick }) => {
   if (isLoading) {
-    return <CategoriesSkeleton />;
+    return <Skeleton className='h-10 w-full max-w-lg rounded-lg' />;
   }
 
   if (categories?.length) {

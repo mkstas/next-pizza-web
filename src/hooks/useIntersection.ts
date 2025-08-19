@@ -1,4 +1,4 @@
-import { RefObject, useEffect } from 'react';
+import { type RefObject, useEffect } from 'react';
 
 export const useIntersection = (ref: RefObject<Element | null>, callback: () => void) => {
   useEffect(() => {
@@ -8,17 +8,11 @@ export const useIntersection = (ref: RefObject<Element | null>, callback: () => 
           callback();
         }
       },
-      { threshold: 0.8 },
+      { threshold: 0.9 },
     );
 
     if (ref.current) {
       observer.observe(ref.current);
     }
-
-    return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
-      }
-    };
   });
 };

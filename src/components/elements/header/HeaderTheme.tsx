@@ -1,6 +1,6 @@
 import { MoonIcon, SunIcon } from 'lucide-react';
-import { FC, memo } from 'react';
-import { Theme } from '@/providers/theme.provider';
+import { type FC, memo } from 'react';
+import { type Theme } from '@/providers/theme.provider';
 import { Button } from '@/components/interface';
 
 interface Props {

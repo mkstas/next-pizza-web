@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { CategoryProduct } from '@/types/products.types';
+import type { CategoryProduct } from '@/types/products.types';
 import { productsService } from '@/services/products.service';
 
 export const useCatedoryProducts = () => {

@@ -1,5 +1,5 @@
 import { LogInIcon, LogOutIcon, UserIcon } from 'lucide-react';
-import { FC, memo } from 'react';
+import { type FC, memo } from 'react';
 import { ROUTES } from '@/config/constants';
 import { Button, ButtonLink, Skeleton } from '@/components/interface';
 

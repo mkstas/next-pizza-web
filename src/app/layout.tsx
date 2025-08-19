@@ -1,8 +1,8 @@
 import { Nunito } from 'next/font/google';
-import '@/shared/index.css';
-import { cn } from '@/shared/utils';
+import { cn } from '@/utils/cn';
 import { AuthProvider } from '@/providers/auth.provider';
 import { ThemeProvider } from '@/providers/theme.provider';
+import './main.css';
 
 const nunito = Nunito({
   subsets: ['latin', 'cyrillic'],

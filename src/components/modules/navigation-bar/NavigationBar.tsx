@@ -1,6 +1,6 @@
 'use client';
 
-import { FC } from 'react';
+import type { FC } from 'react';
 import { useCategoryContext } from '@/providers/category.provider';
 import { CartButton } from '@/components/elements/cart';
 import { CategoriesList } from '@/components/elements/categories';

@@ -1,5 +1,5 @@
 import { ArrowRightIcon, ShoppingBagIcon } from 'lucide-react';
-import { FC, memo } from 'react';
+import { type FC, memo } from 'react';
 import { Button } from '@/components/interface';
 
 interface Props {
@@ -12,7 +12,7 @@ const Component: FC<Props> = ({ onClick }) => {
       <span>1000 ₽</span>
       <span className='h-5 w-0.25 bg-white/50'></span>
       <span className='flex items-center gap-1 transition-opacity duration-300 group-hover:opacity-0'>
-        <span>0</span>
+        <span>3</span>
         <ShoppingBagIcon size={16} className='relative -top-0.25 size-4' />
       </span>
       <ArrowRightIcon

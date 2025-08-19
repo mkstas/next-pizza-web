@@ -1,5 +1,6 @@
-import { prisma } from '@/prisma';
 import { NextResponse } from 'next/server';
+import { prisma } from '@/prisma/internal/prisma-client';
+import type { ProductFilterItem } from '@/types/products.types';
 
 export async function GET() {
   const ingredients = await prisma.ingredient.findMany();
@@ -10,7 +11,7 @@ export async function GET() {
 
   return NextResponse.json(
     [
-      ...ingredients.map(ingredient => {
+      ...ingredients.map((ingredient): ProductFilterItem => {
         return {
           value: ingredient.alias,
           label: ingredient.title,

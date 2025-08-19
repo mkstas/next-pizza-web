@@ -1,4 +1,4 @@
-import { CategoryProduct, ProductFilterItem } from '@/types/products.types';
+import type { CategoryProduct, ProductFilterItem } from '@/types/products.types';
 import { API_ROUTES } from '@/config/constants';
 
 export const productsService = {

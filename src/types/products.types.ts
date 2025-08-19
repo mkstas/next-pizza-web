@@ -1,4 +1,10 @@
-import { Category, Ingredient, Product, ProductIngredient, ProductVariant } from '@prisma/client';
+import type {
+  Category,
+  Ingredient,
+  Product,
+  ProductIngredient,
+  ProductVariant,
+} from '@prisma/client';
 
 export type ProductIngredientWithRelation = ProductIngredient & { ingredient: Ingredient };
 

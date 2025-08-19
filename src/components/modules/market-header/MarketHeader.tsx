@@ -1,6 +1,6 @@
 'use client';
 
-import { FC } from 'react';
+import type { FC } from 'react';
 import { ROUTES } from '@/config/constants';
 import { useAuthContext } from '@/providers/auth.provider';
 import { useThemeContext } from '@/providers/theme.provider';

@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { FC } from 'react';
-import { ProductVariant } from '@prisma/client';
+import type { FC } from 'react';
+import type { ProductVariant } from '@prisma/client';
 import { ROUTES } from '@/config/constants';
 import { Button } from '@/components/interface';
 

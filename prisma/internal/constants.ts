@@ -1,5 +1,5 @@
 import type { Category, Ingredient, User } from '@prisma/client';
-import { slugify } from '../../src/shared/utils/slugify';
+import { slugify } from '@/utils/slugify';
 
 export const USER: Pick<User, 'phoneNumber'> = {
   phoneNumber: '79000000000',

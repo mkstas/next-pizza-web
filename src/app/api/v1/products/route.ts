@@ -1,5 +1,5 @@
-import { prisma } from '@/prisma';
 import { NextResponse } from 'next/server';
+import { prisma } from '@/prisma/internal/prisma-client';
 
 export async function GET() {
   const products = await prisma.category.findMany({

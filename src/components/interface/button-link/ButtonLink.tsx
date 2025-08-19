@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import { AnchorHTMLAttributes, FC } from 'react';
-import { cn } from '@/shared/utils';
+import type { AnchorHTMLAttributes, FC } from 'react';
+import { cn } from '@/utils/cn';
 
 const variants = {
   default: 'bg-orange-500 hover:bg-orange-600',

@@ -1,6 +1,6 @@
 'use client';
 
-import { FC, useCallback, useMemo } from 'react';
+import { type FC, useCallback, useMemo } from 'react';
 import { FilterGroupItems } from '@/components/elements/filters';
 import { Button } from '@/components/interface';
 import { useFilterItems } from './useFilterItems';
@@ -26,7 +26,7 @@ export const MarketFilters: FC = () => {
 
   const onClickExpand = useCallback(() => {
     setIsExpanded(prev => !prev);
-  }, []);
+  }, [setIsExpanded]);
 
   return (
     <div className='sticky top-26'>

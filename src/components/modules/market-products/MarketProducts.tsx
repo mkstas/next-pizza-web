@@ -1,6 +1,6 @@
 'use client';
 
-import { FC } from 'react';
+import type { FC } from 'react';
 import { ProductsGroup } from '@/components/elements/products';
 import { useCatedoryProducts } from './useCatedoryProducts';
 

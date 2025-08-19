@@ -11,6 +11,7 @@
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
+    "verbatimModuleSyntax": true,
     "jsx": "preserve",
     "incremental": true,
     "plugins": [
@@ -20,7 +21,7 @@
     ],
     "paths": {
       "@/*": ["./src/*"],
-      "@/prisma": ["./prisma/internal/prisma-client.ts"]
+      "@/prisma/*": ["./prisma/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

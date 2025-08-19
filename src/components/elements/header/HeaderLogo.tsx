@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { FC, memo } from 'react';
+import { type FC, memo } from 'react';
 
 interface Props {
   href: string;

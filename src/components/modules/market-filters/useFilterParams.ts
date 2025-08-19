@@ -1,6 +1,6 @@
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useCallback, useEffect, useState } from 'react';
-import { ProductFilterParams } from '@/types/products.types';
+import type { ProductFilterParams } from '@/types/products.types';
 
 export const useFilterParams = () => {
   const router = useRouter();
@@ -72,7 +72,7 @@ export const useFilterParams = () => {
     router.push(`?${getParamsString(params)}`, {
       scroll: false,
     });
-  }, [selectedPizzaSizes, selectedPizzaTypes, selectedIngredients]);
+  }, [selectedPizzaSizes, selectedPizzaTypes, selectedIngredients, router]);
 
   return {
     selectedPizzaSizes,

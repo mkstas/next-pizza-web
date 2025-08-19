@@ -16,7 +16,7 @@
     "@/prisma/(.*)$",
     "@/types/(.*)$",
     "@/config/(.*)$",
-    "@/shared/(.*)$",
+    "@/utils/(.*)$",
     "@/hooks/(.*)$",
     "@/services/(.*)$",
     "@/providers/(.*)$",

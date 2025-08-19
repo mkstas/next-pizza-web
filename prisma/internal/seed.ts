@@ -1,4 +1,4 @@
-import { slugify } from '../../src/shared/utils/slugify';
+import { slugify } from '@/utils/slugify';
 import { CATEGORIES, INGREDIENTS, USER } from './constants';
 import { prisma } from './prisma-client';
 
@@ -12,12 +12,6 @@ async function generatePizzasVariants() {
   const product1 = await prisma.product.findFirst({
     where: { title: 'Карбонара' },
   });
-  // const product2 = await prisma.product.findFirst({
-  //   where: { title: 'Гавайская' },
-  // });
-  // const product3 = await prisma.product.findFirst({
-  //   where: { title: 'Четыре сыра' },
-  // });
 
   await generateProductVariant({
     productId: product1!.id,
@@ -114,14 +108,6 @@ async function generatePizzas() {
         title: 'Карбонара',
         alias: slugify('Карбонара'),
       },
-      // {
-      //   categoryId: category!.id,
-      //   title: 'Гавайская',
-      // },
-      // {
-      //   categoryId: category!.id,
-      //   title: 'Четыре сыра',
-      // },
     ],
   });
 }

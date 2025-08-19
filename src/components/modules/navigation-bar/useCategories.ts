@@ -1,6 +1,6 @@
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { Category } from '@prisma/client';
+import type { Category } from '@prisma/client';
 import { categoryService } from '@/services/categories.service';
 
 export const useCategories = () => {
@@ -16,6 +16,7 @@ export const useCategories = () => {
   const fetchData = async () => {
     try {
       const categories = await categoryService.findAll();
+
       setCategories(categories);
     } catch {
     } finally {
