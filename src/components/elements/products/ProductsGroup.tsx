@@ -1,6 +1,8 @@
-import { FC } from 'react';
+import { FC, useRef } from 'react';
 import { ProductVariant } from '@prisma/client';
 import { ProductIngredientWithRelation, ProductWithRelations } from '@/types/products.types';
+import { useIntersection } from '@/hooks/useIntersection';
+import { useCategoryContext } from '@/providers/category.provider';
 import { ProductsCard } from './ProductsCard';
 import { ProductsGroupSkeleton } from './ProductsGroupSkeleton';
 
@@ -28,8 +30,15 @@ export const ProductsGroup: FC<Props> = ({ categoryTitle, categoryAlias, product
     return <ProductsGroupSkeleton />;
   }
 
+  const { setActiveCategory } = useCategoryContext();
+  const productGroupRef = useRef<HTMLDivElement>(null);
+
+  if (categoryAlias && setActiveCategory) {
+    useIntersection(productGroupRef, () => setActiveCategory(categoryAlias));
+  }
+
   return (
-    <div id={categoryAlias} className='space-y-8'>
+    <div ref={productGroupRef} id={categoryAlias} className='space-y-8'>
       <h2 className='text-3xl font-extrabold'>{categoryTitle}</h2>
       <div className='grid grid-cols-3 gap-8'>
         {products?.map(product => (

@@ -6,10 +6,11 @@ import { CategoriesSkeleton } from './CategoriesSkeleton';
 interface Props {
   isLoading?: boolean;
   categories?: Category[];
+  activeCategory: string;
   onClick: (alias: string) => void;
 }
 
-const Component: FC<Props> = ({ isLoading, categories, onClick }) => {
+const Component: FC<Props> = ({ isLoading, categories, activeCategory, onClick }) => {
   if (isLoading) {
     return <CategoriesSkeleton />;
   }
@@ -23,7 +24,7 @@ const Component: FC<Props> = ({ isLoading, categories, onClick }) => {
               onClick={() => onClick(category.alias)}
               className={cn(
                 'block cursor-pointer rounded-md px-2 py-1 font-semibold transition-colors hover:text-orange-500',
-                category.id === categories[0].id && 'bg-white text-orange-500 dark:bg-neutral-800',
+                category.alias === activeCategory && 'bg-white text-orange-500 dark:bg-neutral-800',
               )}
             >
               {category.title}

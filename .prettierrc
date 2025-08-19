@@ -17,6 +17,7 @@
     "@/types/(.*)$",
     "@/config/(.*)$",
     "@/shared/(.*)$",
+    "@/hooks/(.*)$",
     "@/services/(.*)$",
     "@/providers/(.*)$",
     "@/components/(.*)$",
