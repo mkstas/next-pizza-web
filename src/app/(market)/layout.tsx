@@ -5,11 +5,14 @@ import { NavigationBar } from '@/components/modules/navigation-bar';
 
 export default function MarketLayout({
   children,
+  modal,
 }: Readonly<{
   children: React.ReactNode;
+  modal: React.ReactNode;
 }>) {
   return (
     <>
+      {modal}
       <MarketHeader />
       <CategoryProvider>
         <NavigationBar />
