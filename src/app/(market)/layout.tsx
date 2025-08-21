@@ -12,12 +12,14 @@ export default function MarketLayout({
 }>) {
   return (
     <>
-      {modal}
       <MarketHeader />
       <CategoryProvider>
         <NavigationBar />
         <main className='py-8'>
-          <Container>{children}</Container>
+          <Container>
+            {modal}
+            {children}
+          </Container>
         </main>
       </CategoryProvider>
     </>
