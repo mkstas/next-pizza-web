@@ -1,8 +1,8 @@
 import { type FC, useRef } from 'react';
-import type { ProductVariant } from '@prisma/client';
-import type { ProductIngredientWithRelation, ProductWithRelations } from '@/types/products.types';
+import type { ProductWithRelations } from '@/types/products.types';
 import { useIntersection } from '@/hooks/useIntersection';
 import { useCategoryContext } from '@/providers/category.provider';
+import { getProductDetails, getProductImageUrl } from './get-product-info';
 import { ProductsCard } from './ProductsCard';
 import { ProductsGroupSkeleton } from './ProductsGroupSkeleton';
 
@@ -12,18 +12,6 @@ interface Props {
   categoryAlias?: string;
   products?: ProductWithRelations[];
 }
-
-const getProductImageUrl = (variants: ProductVariant[]) => {
-  return variants[2] ? variants[2].imageUrl : variants[0].imageUrl;
-};
-
-const getProductDetails = (ingredients: ProductIngredientWithRelation[]) => {
-  if (ingredients.length) {
-    return [...ingredients.filter(item => item.required).map(item => item.ingredient.title)].join(
-      ', ',
-    );
-  }
-};
 
 export const ProductsGroup: FC<Props> = ({ categoryTitle, categoryAlias, products, isLoading }) => {
   const { setActiveCategory } = useCategoryContext();

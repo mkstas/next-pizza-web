@@ -7,6 +7,11 @@ export const productsService = {
 
     return await res.json();
   },
+  findOne: async (id: string) => {
+    const res = await fetch(API_ROUTES.SINGLE_PRODUCT(id));
+
+    return await res.json();
+  },
   findPizzaTypes: async (): Promise<ProductFilterItem[]> => {
     const res = await fetch(API_ROUTES.FILTER_PIZZA_TYPES);
 
