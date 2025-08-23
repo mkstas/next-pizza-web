@@ -1,9 +1,8 @@
 import type { Category } from '@prisma/client';
+import { API_ROUTES } from '@/config/constants';
 
 export const categoryService = {
   findAll: async (): Promise<Category[]> => {
-    const res = await fetch('/api/v1/categories');
-
-    return await res.json();
+    return (await fetch(API_ROUTES.CATEGORIES)).json();
   },
 };

@@ -2,8 +2,8 @@
 
 import type { FC } from 'react';
 import { useCategoryContext } from '@/providers/category.provider';
-import { CartButton } from '@/components/elements/cart';
 import { CategoriesList } from '@/components/elements/categories';
+import { HeaderCart } from '@/components/elements/header/HeaderCart';
 import { Container } from '@/components/interface';
 import { useCategories } from './useCategories';
 
@@ -21,7 +21,7 @@ export const NavigationBar: FC = () => {
           onClick={onClickCategory}
         />
         <div className='ml-auto'>
-          <CartButton />
+          <HeaderCart />
         </div>
       </Container>
     </nav>

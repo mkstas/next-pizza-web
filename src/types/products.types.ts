@@ -15,6 +15,15 @@ export type ProductWithRelations = Product & {
 
 export type CategoryProduct = Category & { products: ProductWithRelations[] };
 
+export type PizzaType = {
+  pizzaType: string;
+  pizzaTypeAlias: string;
+};
+
+export type PizzaSize = {
+  pizzaSize: number;
+};
+
 export type ProductFilterItem = {
   value: string;
   label: string;

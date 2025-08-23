@@ -17,7 +17,7 @@ export const ProductsGroup: FC<Props> = ({ categoryTitle, categoryAlias, product
   const { setActiveCategory } = useCategoryContext();
   const productGroupRef = useRef<HTMLDivElement>(null);
 
-  useIntersection(productGroupRef, () => setActiveCategory!(categoryAlias!));
+  useIntersection(productGroupRef, () => setActiveCategory!(categoryAlias!), 0.9);
 
   if (isLoading) {
     return <ProductsGroupSkeleton />;

@@ -23,4 +23,4 @@ const Component: FC<Props> = ({ onClick }) => {
   );
 };
 
-export const CartButton = memo(Component);
+export const HeaderCart = memo(Component);

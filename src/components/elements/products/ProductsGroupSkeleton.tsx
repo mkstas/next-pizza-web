@@ -10,12 +10,12 @@ export const ProductsGroupSkeleton: FC = () => {
           .fill(0)
           .map((_, index) => (
             <div key={index} className='space-y-4'>
-              <Skeleton className='aspect-square w-full rounded-xl' />
-              <Skeleton className='h-7 w-32 rounded-xl' />
-              <Skeleton className='h-15 rounded-xl' />
+              <Skeleton className='aspect-square w-full rounded-lg' />
+              <Skeleton className='h-7 w-32 rounded-lg' />
+              <Skeleton className='h-15 rounded-lg' />
               <div className='flex items-center justify-between gap-2'>
-                <Skeleton className='h-10 w-24 rounded-xl' />
-                <Skeleton className='h-10 w-24 rounded-xl' />
+                <Skeleton className='h-10 w-24 rounded-lg' />
+                <Skeleton className='h-10 w-24 rounded-lg' />
               </div>
             </div>
           ))}

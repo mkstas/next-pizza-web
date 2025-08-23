@@ -1,6 +1,10 @@
 import { type RefObject, useEffect } from 'react';
 
-export const useIntersection = (ref: RefObject<Element | null>, callback: () => void) => {
+export const useIntersection = (
+  ref: RefObject<Element | null>,
+  callback: () => void,
+  threshold: number,
+) => {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -8,7 +12,7 @@ export const useIntersection = (ref: RefObject<Element | null>, callback: () => 
           callback();
         }
       },
-      { threshold: 0.9 },
+      { threshold },
     );
 
     if (ref.current) {

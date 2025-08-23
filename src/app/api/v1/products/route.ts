@@ -18,7 +18,7 @@ export async function GET() {
   });
 
   if (!products.length) {
-    return NextResponse.json({ message: 'products are not found' }, { status: 404 });
+    return NextResponse.json({ message: 'Products are not found' }, { status: 404 });
   }
 
   return NextResponse.json(products, {

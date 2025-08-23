@@ -5,7 +5,7 @@ export async function GET() {
   const categories = await prisma.category.findMany();
 
   if (!categories.length) {
-    return NextResponse.json({ message: 'categories are not found' }, { status: 404 });
+    return NextResponse.json({ message: 'Categories are not found' }, { status: 404 });
   }
 
   return NextResponse.json(categories, {
