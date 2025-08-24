@@ -4,7 +4,7 @@ import { prisma } from '@/prisma/internal/prisma-client';
 export async function GET() {
   const pizzaTypes = await prisma.productVariant.groupBy({
     where: { NOT: [{ pizzaType: null }] },
-    by: ['pizzaType', 'pizzaTypeAlias'],
+    by: ['pizzaType'],
     orderBy: {
       pizzaType: 'desc',
     },

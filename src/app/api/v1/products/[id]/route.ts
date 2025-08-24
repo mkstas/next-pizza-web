@@ -7,12 +7,12 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{ id: 
   const product = await prisma.product.findFirst({
     where: { alias: id },
     include: {
-      ingredients: {
+      productIngredients: {
         include: {
           ingredient: true,
         },
       },
-      variants: true,
+      productVariants: true,
     },
   });
 

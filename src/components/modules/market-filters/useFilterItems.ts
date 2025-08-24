@@ -15,9 +15,9 @@ export const useFilterItems = () => {
     return [
       ...pizzaTypes.map((type): ProductFilterItem => {
         return {
-          value: type.pizzaTypeAlias,
+          value: type.pizzaType,
           label: type.pizzaType,
-          alias: type.pizzaTypeAlias,
+          alias: type.pizzaType,
         };
       }),
     ];

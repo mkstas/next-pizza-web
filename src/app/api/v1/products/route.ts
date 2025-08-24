@@ -6,8 +6,8 @@ export async function GET() {
     include: {
       products: {
         include: {
-          variants: true,
-          ingredients: {
+          productVariants: true,
+          productIngredients: {
             include: {
               ingredient: true,
             },

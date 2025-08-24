@@ -9,15 +9,14 @@ import type {
 export type ProductIngredientWithRelation = ProductIngredient & { ingredient: Ingredient };
 
 export type ProductWithRelations = Product & {
-  variants: ProductVariant[];
-  ingredients: ProductIngredientWithRelation[];
+  productVariants: ProductVariant[];
+  productIngredients: ProductIngredientWithRelation[];
 };
 
 export type CategoryProduct = Category & { products: ProductWithRelations[] };
 
 export type PizzaType = {
   pizzaType: string;
-  pizzaTypeAlias: string;
 };
 
 export type PizzaSize = {

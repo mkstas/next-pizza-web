@@ -32,9 +32,9 @@ export const ProductsGroup: FC<Props> = ({ categoryTitle, categoryAlias, product
             key={product.id}
             title={product.title}
             alias={product.alias}
-            imageUrl={getProductImageUrl(product.variants)}
-            details={getProductDetails(product.ingredients) || product.description}
-            variants={product.variants}
+            imageUrl={getProductImageUrl(product.productVariants)}
+            details={getProductDetails(product.productIngredients) || product.description}
+            variants={product.productVariants}
           />
         ))}
       </div>

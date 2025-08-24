@@ -18,8 +18,10 @@ export const ProductChooseForm: FC<Props> = ({ isLoading, product }) => {
     <div className='flex h-full flex-col space-y-4'>
       <div className='space-y-2'>
         <h4 className='text-2xl font-bold'>{product?.title}</h4>
-        {product?.ingredients && (
-          <p className='mt-2 text-sm text-slate-600'>{getProductDetails(product.ingredients)}</p>
+        {product?.productIngredients && (
+          <p className='mt-2 text-sm text-slate-600'>
+            {getProductDetails(product.productIngredients)}
+          </p>
         )}
       </div>
       <ProductVariant
