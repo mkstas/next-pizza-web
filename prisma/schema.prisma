@@ -16,8 +16,7 @@ datasource db {
 model User {
   id          String   @id @default(uuid())
   phoneNumber String   @unique @map("phone_number")
-  fullName    String?
-  coins       Int      @default(0)
+  fullname    String?
   createdAt   DateTime @default(now()) @map("created_at")
   updatedAt   DateTime @updatedAt @map("updated_at")
 
@@ -36,16 +35,14 @@ model Category {
 }
 
 model Product {
-  id          String              @id @default(uuid())
-  category    Category            @relation(fields: [categoryId], references: [id])
-  categoryId  String
-  title       String
-  alias       String              @unique
-  description String?
-  createdAt   DateTime            @default(now()) @map("created_at")
-  updatedAt   DateTime            @updatedAt @map("updated_at")
-  variants    ProductVariant[]
-  ingredients ProductIngredient[]
+  id                 String              @id @default(uuid())
+  category           Category            @relation(fields: [categoryId], references: [id])
+  categoryId         String              @map("category_id")
+  title              String
+  alias              String              @unique
+  description        String?
+  productIngredients ProductIngredient[]
+  productVariants    ProductVariant[]
 
   @@map("products")
 }
@@ -53,7 +50,7 @@ model Product {
 model Ingredient {
   id                 String              @id @default(uuid())
   title              String
-  alias              String
+  alias              String              @unique
   imageUrl           String              @map("image_url")
   price              Int
   createdAt          DateTime            @default(now()) @map("created_at")
@@ -66,9 +63,9 @@ model Ingredient {
 model ProductIngredient {
   id           String     @id @default(uuid())
   ingredient   Ingredient @relation(fields: [ingredientId], references: [id])
-  ingredientId String
-  product      Product    @relation(fields: [productId], references: [id])
-  productId    String
+  ingredientId String     @map("ingredient_id")
+  product      Product?   @relation(fields: [productId], references: [id])
+  productId    String?    @map("product_id")
   required     Boolean    @default(false)
   createdAt    DateTime   @default(now()) @map("created_at")
   updatedAt    DateTime   @updatedAt @map("updated_at")
@@ -77,18 +74,17 @@ model ProductIngredient {
 }
 
 model ProductVariant {
-  id             String   @id @default(uuid())
-  product        Product  @relation(fields: [productId], references: [id])
-  productId      String
-  imageUrl       String   @map("image_url")
-  price          Int
-  weight         Int
-  pizzaType      String?  @map("pizza_type")
-  pizzaTypeAlias String?  @map("pizza_type_alias")
-  pizzaSize      Int?     @map("pizza_size")
-  volume         Int?
-  createdAt      DateTime @default(now()) @map("created_at")
-  updatedAt      DateTime @updatedAt @map("updated_at")
+  id        String   @id @default(uuid())
+  product   Product  @relation(fields: [productId], references: [id])
+  productId String   @map("product_id")
+  imageUrl  String   @map("image_url")
+  price     Int
+  weight    Int
+  volume    Int?
+  pizzaType String?  @map("pizza_type")
+  pizzaSize Int?     @map("pizza_size")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
 
   @@map("product_variants")
 }

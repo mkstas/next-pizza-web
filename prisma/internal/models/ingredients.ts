@@ -1,36 +1,5 @@
-import type { Category, Ingredient, User } from '@prisma/client';
+import type { Ingredient } from '@prisma/client';
 import { slugify } from '@/utils/slugify';
-
-export const USER: Pick<User, 'phoneNumber'> = {
-  phoneNumber: '79000000000',
-};
-
-export const CATEGORIES: Pick<Category, 'title' | 'alias'>[] = [
-  {
-    title: 'Пиццы',
-    alias: slugify('Пиццы'),
-  },
-  {
-    title: 'Закуски',
-    alias: slugify('Закуски'),
-  },
-  {
-    title: 'Коктейли',
-    alias: slugify('Коктейли'),
-  },
-  {
-    title: 'Кофе',
-    alias: slugify('Кофе'),
-  },
-  {
-    title: 'Десерты',
-    alias: slugify('Десерты'),
-  },
-  {
-    title: 'Завтрак',
-    alias: slugify('Завтрак'),
-  },
-];
 
 export const INGREDIENTS: Pick<Ingredient, 'title' | 'alias' | 'imageUrl' | 'price'>[] = [
   {
